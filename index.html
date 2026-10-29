@@ -192,45 +192,47 @@ section{ position:relative; }
 /* ============================================================
    HERO
    ============================================================ */
-#home{ background:#000; }
+#home{ background:#000; align-items:flex-start; }
 #home .bg{
-  position:absolute; inset:0; background-image:url('assets/bg3.jpg'); background-size:cover; background-position:60% center;
+  position:absolute; inset:0; background-image:url('assets/bg3.png'); background-size:cover; background-position:center top;
   transform:scale(1.08); will-change:transform;
 }
 #home .vignette{
   position:absolute; inset:0; pointer-events:none;
   background:
-    radial-gradient(58% 68% at 50% 48%, rgba(42,28,10,.28), transparent 82%),
-    linear-gradient(180deg, rgba(20,14,5,.14), rgba(20,14,5,.06) 48%, rgba(20,14,5,.3) 100%);
+    radial-gradient(58% 68% at 50% 48%, rgba(42,28,10,.08), transparent 82%),
+    linear-gradient(180deg, rgba(255,255,255,.35) 0%, rgba(255,255,255,0) 45%, rgba(20,14,5,.25) 100%);
 }
-#home .card-inner{ padding-top:70px; }
-#home .monogram{ width:66px; height:66px; margin:0 auto 22px; opacity:.95; filter:drop-shadow(0 2px 10px rgba(0,0,0,.5)); }
-#home .eyebrow{ color:#E2B969; text-shadow:0 2px 5px rgba(20,12,3,.8), 0 2px 14px rgba(0,0,0,.6); }
+#home .card-inner{ padding-top:48px; }
+#home .monogram{ width:58px; height:58px; margin:0 auto 16px; opacity:.95; filter:drop-shadow(0 2px 8px rgba(0,0,0,.15)); }
+#home .monogram circle{ stroke:#8C6D37; }
+#home .monogram text{ fill:#2A2622; }
+#home .eyebrow{ color:#6E5839; font-weight:600; text-shadow:0 1px 4px rgba(255,255,255,.7); }
 #home h1{
-  color:#FBF6E9; font-size:clamp(2.4rem, 6vw, 4.4rem); line-height:1.1; margin:16px 0 10px;
-  text-shadow:0 2px 3px rgba(20,12,3,.85), 0 4px 12px rgba(0,0,0,.7), 0 10px 40px rgba(0,0,0,.55);
+  color:#24201C; font-size:clamp(2.4rem, 6vw, 4.4rem); line-height:1.1; margin:12px 0 8px;
+  text-shadow:0 1px 2px rgba(255,255,255,.8), 0 3px 12px rgba(0,0,0,.12);
 }
-#home h1 em{ font-style:italic; display:block; font-size:.5em; color:#E2B969; margin:10px 0; letter-spacing:.05em; text-shadow:0 2px 4px rgba(20,12,3,.8); }
-#home .rec-label{ font-family:var(--label); letter-spacing:.3em; text-transform:uppercase; font-size:.78rem; color:#FFF3D5; margin:18px 0 22px; text-shadow:0 2px 4px rgba(20,12,3,.85), 0 2px 12px rgba(0,0,0,.65); }
-#home .datetime{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; color:#FFF3D5; font-family:var(--body); font-size:1.05rem; letter-spacing:.03em; text-shadow:0 2px 4px rgba(20,12,3,.85), 0 2px 12px rgba(0,0,0,.6); }
-#home .datetime span{ position:relative; padding:0 20px; }
+#home h1 em{ font-style:italic; display:block; font-size:.5em; color:#7A5E2E; margin:8px 0; letter-spacing:.05em; text-shadow:none; }
+#home .rec-label{ font-family:var(--label); letter-spacing:.3em; text-transform:uppercase; font-size:.78rem; color:#4A3F33; margin:16px 0 20px; text-shadow:0 1px 3px rgba(255,255,255,.8); }
+#home .datetime{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; color:#3A332B; font-family:var(--body); font-size:1.05rem; letter-spacing:.03em; text-shadow:0 1px 3px rgba(255,255,255,.7); }
+#home .datetime span{ position:relative; padding:0 20px; font-weight:500; }
 #home .datetime span:not(:last-child)::after{ content:'•'; position:absolute; right:-4px; color:var(--gold); }
 @media(max-width:720px){
-  #home .card-inner{ padding-top:24px; }
+  #home .card-inner{ padding-top:36px; }
 }
 .scroll-cue{
-  position:absolute; bottom:38px; left:50%; transform:translateX(-50%);
-  display:flex; flex-direction:column; align-items:center; gap:8px; color:#FFF8E8; z-index:3;
+  position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:8px; color:#3A332B; z-index:3;
   font-family:var(--label); font-size:.66rem; letter-spacing:.3em; text-transform:uppercase;
-  text-shadow:0 2px 8px rgba(30,20,5,.8);
+  text-shadow:0 1px 4px rgba(255,255,255,.8);
 }
-.scroll-cue .line{ width:2px; height:38px; background:linear-gradient(180deg, #FFF8E8, rgba(255,248,232,.05)); box-shadow:0 0 8px rgba(30,20,5,.55); animation:cueMove 2.2s ease-in-out infinite; }
+.scroll-cue .line{ width:2px; height:36px; background:linear-gradient(180deg, #3A332B, rgba(58,51,43,.05)); box-shadow:none; animation:cueMove 2.2s ease-in-out infinite; }
 @keyframes cueMove{ 0%{ transform:scaleY(.3); transform-origin:top;} 50%{transform:scaleY(1); transform-origin:top;} 100%{transform:scaleY(.3); transform-origin:bottom;} }
 
 /* ============================================================
    INVITATION CARD SECTION
    ============================================================ */
-#invitation{ background-image:url('assets/bg3.jpg'); background-size:cover; background-position:center; padding:150px 0; position:relative; }
+#invitation{ background-image:url('assets/bg4.jpg'); background-size:cover; background-position:center; padding:150px 0; position:relative; }
 #invitation::before{ content:''; position:absolute; inset:0; background:rgba(248,242,228,.62); }
 .inv-card{
   position:relative; z-index:2; max-width:680px; margin:0 auto; background:var(--ivory-card);
@@ -265,7 +267,7 @@ section{ position:relative; }
 /* ============================================================
    CELEBRATIONS & EVENTS (PROGRAMME)
    ============================================================ */
-#reception{ background-image:url('assets/bg3.jpg'); background-size:cover; background-position:center; padding:140px 0; position:relative; }
+#reception{ background-image:url('assets/bg4.jpg'); background-size:cover; background-position:center; padding:140px 0; position:relative; }
 #reception::before{ content:''; position:absolute; inset:0; background:rgba(248,242,228,.7); }
 
 .events-grid{
@@ -385,7 +387,7 @@ section{ position:relative; }
    WISHES & BLESSINGS (GUESTBOOK)
    ============================================================ */
 #wishes{
-  background-image:url('assets/bg3.jpg');
+  background-image:url('assets/bg4.jpg');
   background-size:cover;
   background-position:center;
   padding:140px 0;
@@ -473,6 +475,8 @@ section{ position:relative; }
   gap:16px;
   max-height:540px;
   overflow-y:auto;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
   padding-right:6px;
 }
 .wishes-feed::-webkit-scrollbar{ width:6px; }
@@ -518,7 +522,7 @@ section{ position:relative; }
 /* ============================================================
    CLOSING
    ============================================================ */
-#closing{ background-image:url('assets/bg3.jpg'); background-size:cover; background-position:center; padding:160px 0 120px; position:relative; text-align:center; }
+#closing{ background-image:url('assets/bg4.jpg'); background-size:cover; background-position:center; padding:160px 0 120px; position:relative; text-align:center; }
 #closing::before{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,22,14,.55), rgba(10,16,10,.82)); }
 #closing .c-inner{ position:relative; z-index:2; color:var(--ivory-deep); }
 .diya{ width:40px; height:56px; margin:0 auto 26px; position:relative; }
@@ -713,7 +717,7 @@ body.site-ready #sound-toggle{ opacity:.92; }
     </div>
     <div class="gal-grid" data-reveal="scale">
       <div class="gal-item gal-1" data-full="assets/couple1.jpeg"><img src="assets/couple1.jpeg" alt="Sethu and Meghana"></div>
-      <!-- <div class="gal-item gal-2" data-full="assets/couple2.jpg"><img src="assets/couple2.jpg" alt="Sethu and Meghana candid"></div> -->
+      <div class="gal-item gal-2" data-full="assets/couple2.png"><img src="assets/couple2.png" alt="Sethu and Meghana candid"></div>
       <!-- <div class="gal-item gal-3" data-full="assets/couple3.jpg"><img src="assets/couple3.jpg" alt="Sethu and Meghana celebration"></div> -->
     </div>
   </div>
