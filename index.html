@@ -382,6 +382,140 @@ section{ position:relative; }
 #venue iframe{ width:100%; height:380px; border:0; display:block; filter:sepia(.12) saturate(1.05); }
 
 /* ============================================================
+   WISHES & BLESSINGS (GUESTBOOK)
+   ============================================================ */
+#wishes{
+  background-image:url('assets/bg3.jpg');
+  background-size:cover;
+  background-position:center;
+  padding:140px 0;
+  position:relative;
+}
+#wishes::before{
+  content:''; position:absolute; inset:0;
+  background:rgba(248,242,228,.82);
+}
+.wishes-wrap{
+  position:relative;
+  z-index:2;
+  max-width:820px;
+  margin:0 auto;
+}
+.wishes-card{
+  background:var(--ivory-card);
+  border:1px solid var(--gold-line);
+  padding:44px 34px;
+  position:relative;
+  box-shadow:0 24px 60px rgba(60,42,20,.12);
+  margin-bottom:44px;
+}
+.wishes-card::before{
+  content:''; position:absolute; inset:10px;
+  border:1px solid rgba(176,129,60,.28);
+  pointer-events:none;
+}
+.wishes-form{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  margin-top:16px;
+}
+.wishes-form .field-group{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  text-align:left;
+}
+.wishes-form label{
+  font-family:var(--label);
+  font-size:.62rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+.wishes-form input,
+.wishes-form textarea{
+  width:100%;
+  background:#FCF9F2;
+  border:1px solid rgba(176,129,60,.38);
+  padding:12px 14px;
+  font-family:var(--body);
+  font-size:1.05rem;
+  color:var(--ink);
+  outline:none;
+  transition:border-color .3s ease, background .3s ease;
+  border-radius:1px;
+}
+.wishes-form input:focus,
+.wishes-form textarea:focus{
+  border-color:var(--gold-bright);
+  background:#fff;
+}
+.wishes-form textarea{
+  min-height:95px;
+  resize:vertical;
+}
+.wishes-status{
+  font-family:var(--body);
+  font-size:.98rem;
+  min-height:24px;
+  margin-top:8px;
+  text-align:center;
+  transition:opacity .3s ease;
+}
+.wishes-status.success{ color:#2B6E3F; font-style:italic; }
+.wishes-status.error{ color:var(--maroon); font-style:italic; }
+.wishes-status.loading{ color:var(--brown); font-style:italic; }
+
+.wishes-feed{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  max-height:540px;
+  overflow-y:auto;
+  padding-right:6px;
+}
+.wishes-feed::-webkit-scrollbar{ width:6px; }
+.wishes-feed::-webkit-scrollbar-thumb{ background:var(--gold-line); border-radius:3px; }
+.wish-item{
+  background:var(--ivory-card);
+  border:1px solid rgba(176,129,60,.32);
+  padding:20px 24px;
+  position:relative;
+  text-align:left;
+  box-shadow:0 6px 18px rgba(60,42,20,.05);
+}
+.wish-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  border-bottom:1px dashed rgba(176,129,60,.25);
+  padding-bottom:8px;
+  margin-bottom:10px;
+}
+.wish-author{
+  font-family:var(--display);
+  font-weight:600;
+  font-size:1.25rem;
+  color:var(--green);
+}
+.wish-time{
+  font-family:var(--label);
+  font-size:.58rem;
+  letter-spacing:.12em;
+  color:var(--brown);
+  opacity:.85;
+}
+.wish-text{
+  font-family:var(--body);
+  font-size:1.05rem;
+  line-height:1.6;
+  color:var(--ink);
+  margin:0;
+  white-space:pre-wrap;
+}
+
+/* ============================================================
    CLOSING
    ============================================================ */
 #closing{ background-image:url('assets/bg3.jpg'); background-size:cover; background-position:center; padding:160px 0 120px; position:relative; text-align:center; }
@@ -618,6 +752,46 @@ body.site-ready #sound-toggle{ opacity:.92; }
   </div>
 </section>
 
+<!-- ===================== WISHES & BLESSINGS ===================== -->
+<section id="wishes">
+  <div class="wrap wishes-wrap">
+    <div style="text-align:center; margin-bottom:34px;" data-reveal>
+      <p class="eyebrow">Warm Blessings</p>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem); margin-top:8px;">Wishes for Sethu &amp; Meghana</h2>
+      <p style="font-family:var(--body); color:var(--brown); font-size:1.1rem; margin-top:6px;">Leave your warm messages &amp; blessings for the couple</p>
+    </div>
+
+    <!-- Submission Card -->
+    <div class="wishes-card" data-reveal="scale">
+      <form class="wishes-form" id="wishes-form">
+        <div class="field-group">
+          <label for="wish-name">Your Name / Family Name</label>
+          <input type="text" id="wish-name" name="name" placeholder="e.g. Midhun &amp; Family" required maxlength="80">
+        </div>
+        <div class="field-group">
+          <label for="wish-message">Your Message &amp; Blessings</label>
+          <textarea id="wish-message" name="message" placeholder="Write your heartfelt blessings &amp; wishes for the couple..." required maxlength="600"></textarea>
+        </div>
+        <div style="text-align:center; margin-top:10px;">
+          <button type="submit" class="pill-btn" id="wish-submit-btn">Send Blessings ✦</button>
+        </div>
+        <div class="wishes-status" id="wish-status"></div>
+      </form>
+    </div>
+
+    <!-- Wishes Feed -->
+    <div data-reveal>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+        <p class="eyebrow" style="margin:0;">Guestbook Messages (<span id="wishes-count">0</span>)</p>
+        <button type="button" id="refresh-wishes-btn" style="background:none; border:none; color:var(--brown); font-family:var(--label); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; cursor:pointer;">↻ Refresh</button>
+      </div>
+      <div class="wishes-feed" id="wishes-feed">
+        <!-- Wish items injected by JavaScript -->
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== CLOSING ===================== -->
 <section id="closing">
   <div class="wrap c-inner">
@@ -772,6 +946,146 @@ body.site-ready #sound-toggle{ opacity:.92; }
       });
     });
   }
+
+  /* ---------------- WISHES & GUESTBOOK (Google Sheets) ---------------- */
+  // >>> PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE <<<
+  var WISHES_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxok53cJn3Xht0cjTtI5bEOzEfnCvVkEzM248DB3E1WVYeNuD8hF7UjVPU4rtPCaZzdGw/exec';
+
+  var wishesForm = document.getElementById('wishes-form');
+  var wishName = document.getElementById('wish-name');
+  var wishMessage = document.getElementById('wish-message');
+  var wishSubmitBtn = document.getElementById('wish-submit-btn');
+  var wishStatus = document.getElementById('wish-status');
+  var wishesFeed = document.getElementById('wishes-feed');
+  var wishesCount = document.getElementById('wishes-count');
+  var refreshBtn = document.getElementById('refresh-wishes-btn');
+
+  function escapeHtml(str){
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function formatWishDate(dateStr){
+    if(!dateStr) return '';
+    try {
+      var d = new Date(dateStr);
+      if(!isNaN(d.getTime())){
+        return d.toLocaleDateString('en-US', {
+          day: 'numeric',
+          month: 'short',
+          year: 'numeric'
+        }) + ', ' + d.toLocaleTimeString('en-US', {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true
+        });
+      }
+    } catch(e){}
+    return dateStr;
+  }
+
+  function renderWishes(list){
+    if(!wishesFeed) return;
+    if(!list || !list.length){
+      wishesFeed.innerHTML = '<div style="text-align:center; padding:32px 16px; font-family:var(--body); font-style:italic; color:var(--brown); font-size:1.05rem;">Be the first to leave warm blessings for Sethu &amp; Meghana! ✦</div>';
+      if(wishesCount) wishesCount.textContent = '0';
+      return;
+    }
+    if(wishesCount) wishesCount.textContent = list.length;
+    var html = '';
+    // Show newest wishes first
+    for(var i = list.length - 1; i >= 0; i--){
+      var item = list[i];
+      var safeName = escapeHtml(item.name || 'Well-wisher');
+      var safeMsg = escapeHtml(item.message || '');
+      var safeDate = escapeHtml(formatWishDate(item.date) || '');
+      html += '<div class="wish-item">' +
+                '<div class="wish-header">' +
+                  '<span class="wish-author">' + safeName + '</span>' +
+                  '<span class="wish-time">' + safeDate + '</span>' +
+                '</div>' +
+                '<p class="wish-text">' + safeMsg + '</p>' +
+              '</div>';
+    }
+    wishesFeed.innerHTML = html;
+  }
+
+  function fetchWishes(){
+    if(!WISHES_SHEET_URL){
+      renderWishes([
+        { name: "Family & Friends", message: "Wishing Sethu and Meghana a lifetime of love, joy, and wonderful adventures together! Hearty congratulations!", date: "Sample Wish" }
+      ]);
+      return;
+    }
+    fetch(WISHES_SHEET_URL)
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        if(data && data.wishes){
+          renderWishes(data.wishes);
+        }
+      })
+      .catch(function(err){
+        console.error('Error loading wishes:', err);
+      });
+  }
+
+  if(wishesForm){
+    wishesForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = wishName.value.trim();
+      var message = wishMessage.value.trim();
+      if(!name || !message) return;
+
+      if(!WISHES_SHEET_URL){
+        wishStatus.className = 'wishes-status error';
+        wishStatus.textContent = 'Please paste your Google Apps Script URL in index.html to enable live posting.';
+        return;
+      }
+
+      wishSubmitBtn.disabled = true;
+      wishStatus.className = 'wishes-status loading';
+      wishStatus.textContent = 'Sending your blessings... ✦';
+
+      function handleSuccess(){
+        wishSubmitBtn.disabled = false;
+        wishStatus.className = 'wishes-status success';
+        wishStatus.textContent = 'Thank you! Your blessings have been sent with love. ✦';
+        wishName.value = '';
+        wishMessage.value = '';
+        setTimeout(fetchWishes, 600);
+        setTimeout(function(){ wishStatus.textContent = ''; }, 6000);
+      }
+
+      // Submit via robust endpoint action
+      var addUrl = WISHES_SHEET_URL + 
+        (WISHES_SHEET_URL.indexOf('?') === -1 ? '?' : '&') + 
+        'action=add&name=' + encodeURIComponent(name) + 
+        '&message=' + encodeURIComponent(message);
+
+      fetch(addUrl)
+        .then(function(res){ return res.json(); })
+        .then(function(){
+          handleSuccess();
+        })
+        .catch(function(){
+          // Fallback to POST
+          fetch(WISHES_SHEET_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({ name: name, message: message })
+          }).then(function(){ handleSuccess(); }).catch(function(){ handleSuccess(); });
+        });
+    });
+  }
+
+  if(refreshBtn){
+    refreshBtn.addEventListener('click', function(){
+      fetchWishes();
+    });
+  }
+
+  fetchWishes();
 
   /* ---------------- SOUND TOGGLE ---------------- */
   soundBtn.addEventListener('click', function(){
