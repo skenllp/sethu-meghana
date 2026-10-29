@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sethu A. N. &amp; Meghana M. M. | Wedding Invitation</title>
+<meta name="description" content="Wedding Invitation of Sethu A. N. &amp; Meghana M. M. — Saturday, December 5, 2026, Thrissur, Kerala.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sethu-meghana-invitation.vercel.app/">
+<meta property="og:title" content="Sethu A. N. &amp; Meghana M. M. | Wedding Invitation">
+<meta property="og:description" content="Wedding Invitation of Sethu A. N. &amp; Meghana M. M. — Saturday, December 5, 2026, Thrissur, Kerala.">
+<meta property="og:image" content="assets/og-image.jpg">
+<meta property="og:image:secure_url" content="assets/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="800">
+<meta property="og:image:alt" content="Sethu A. N. and Meghana M. M. Wedding Invitation">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sethu A. N. &amp; Meghana M. M. | Wedding Invitation">
+<meta name="twitter:description" content="Wedding Invitation of Sethu A. N. &amp; Meghana M. M. — Saturday, December 5, 2026, Thrissur, Kerala.">
+<meta name="twitter:image" content="assets/og-image.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23F7F1E4' stroke='%23B8873B' stroke-width='4'/%3E%3Ctext x='50' y='62' font-family='Georgia,serif' font-size='38' fill='%231E3B2C' text-anchor='middle'%3ES%26M%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   SETHU & MEGHANA — WEDDING INVITATION
+   Design tokens
+   ============================================================ */
+:root{
+  --ivory: #F8F2E4;
+  --ivory-deep: #EFE3C8;
+  --ivory-card: #FBF6EA;
+  --paper-shadow: rgba(60,42,20,0.18);
+  --gold: #B0813C;
+  --gold-bright: #D3A75B;
+  --gold-line: rgba(176,129,60,0.55);
+  --green: #1E3B2C;
+  --green-deep: #12241A;
+  --brown: #6B4B32;
+  --ink: #2B2013;
+  --maroon: #7C2E2E;
+  --pastel1:#E7D9C7; --pastel2:#CFE0D2; --pastel3:#E3C9C9; --pastel4:#D8CFE3; --pastel5:#E9DDB6;
+
+  --display: 'Cormorant Garamond', 'Playfair Display', serif;
+  --special: 'Playfair Display', 'Cormorant Garamond', serif;
+  --body: 'EB Garamond', Georgia, serif;
+  --label: 'Cinzel', serif;
+
+  --dur-s: .5s; --dur-m: .9s; --dur-l: 1.6s;
+  --ease: cubic-bezier(.22,.7,.2,1);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+
+body{
+  margin:0;
+  font-family: var(--body);
+  background: var(--ivory);
+  color: var(--ink);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body.lock{ overflow:hidden; height:100vh; }
+
+img{max-width:100%; display:block;}
+button{font-family:inherit; cursor:pointer;}
+a{color:inherit;}
+
+h1,h2,h3{ font-family: var(--display); font-weight:500; margin:0; color:var(--green);}
+
+.eyebrow{
+  font-family: var(--label);
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  font-size:.68rem;
+  color:var(--gold);
+}
+
+.divider{
+  width:64px; height:1px; background:var(--gold-line); margin:18px auto; position:relative;
+}
+.divider::before{
+  content:'❖'; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  background:var(--ivory-card); color:var(--gold); font-size:.7rem; padding:0 8px;
+}
+
+/* ---------- reveal-on-scroll ---------- */
+[data-reveal]{ opacity:0; transform:translateY(36px); transition:opacity 1.1s var(--ease), transform 1.1s var(--ease); }
+[data-reveal].in{ opacity:1; transform:translateY(0); }
+[data-reveal="fade"]{ transform:none; }
+[data-reveal="left"]{ transform:translateX(-48px); }
+[data-reveal="left"].in{ transform:translateX(0); }
+[data-reveal="right"]{ transform:translateX(48px); }
+[data-reveal="right"].in{ transform:translateX(0); }
+[data-reveal="scale"]{ transform:scale(.92); }
+[data-reveal="scale"].in{ transform:scale(1); }
+@media (prefers-reduced-motion: reduce){
+  [data-reveal]{ opacity:1 !important; transform:none !important; transition:none !important; }
+}
+
+/* ============================================================
+   FIXED GOLD FRAME (signature element)
+   ============================================================ */
+.frame{
+  position:fixed; inset:0; pointer-events:none; z-index:40;
+  transition:opacity 1s ease;
+}
+.frame::before{
+  content:''; position:absolute; inset:10px;
+  border:1px solid var(--gold-line);
+}
+.frame::after{
+  content:''; position:absolute; inset:14px;
+  border:1px solid rgba(176,129,60,0.25);
+}
+.frame .corner{ position:absolute; width:42px; height:42px; opacity:.85; }
+.frame .corner.tl{ top:8px; left:8px; }
+.frame .corner.tr{ top:8px; right:8px; transform:scaleX(-1); }
+.frame .corner.bl{ bottom:8px; left:8px; transform:scaleY(-1); }
+.frame .corner.br{ bottom:8px; right:8px; transform:scale(-1,-1); }
+body.opening .frame{ opacity:0; }
+@media (max-width:720px){
+  .frame::before{ inset:6px; }
+  .frame::after{ display:none; }
+  .frame .corner{ width:28px; height:28px; }
+}
+
+/* ============================================================
+   OPENING — physical invitation video
+   ============================================================ */
+#opening{
+  position:fixed; inset:0; z-index:100;
+  background: radial-gradient(120% 120% at 50% 30%, #efe2c4 0%, #d9c69a 55%, #b89b66 100%);
+  display:flex; align-items:center; justify-content:center;
+  transition: opacity 1.4s var(--ease), transform 1.4s var(--ease);
+}
+#opening.hide{ opacity:0; transform:scale(1.06); pointer-events:none; }
+#opening video{
+  height:100vh; max-height:100vh; width:auto; max-width:100vw;
+  object-fit:cover; box-shadow:0 40px 90px rgba(30,20,5,.45);
+}
+#opening .veil{
+  position:absolute; inset:0; background:
+    linear-gradient(180deg, rgba(35,24,10,.16), rgba(35,24,10,.08) 42%, rgba(35,24,10,.2) 54%, rgba(20,14,4,.36) 82%, rgba(20,14,4,.44) 100%),
+    radial-gradient(90% 62% at 50% 48%, rgba(48,31,10,.2), transparent 72%),
+    radial-gradient(90% 60% at 50% 8%, rgba(40,26,8,.42), transparent 60%),
+    radial-gradient(90% 60% at 50% 100%, rgba(20,14,4,.58), transparent 55%);
+  pointer-events:none;
+}
+#opening .op-hint{
+  position:absolute; bottom:9%; left:50%; transform:translateX(-50%);
+  color:#fbf3df; font-family:var(--label); font-size:.66rem; letter-spacing:.32em; text-transform:uppercase;
+  opacity:.85; text-align:center; text-shadow:0 2px 10px rgba(0,0,0,.4);
+}
+#opening .op-hint span{ display:block; margin-top:6px; font-size:1.1rem; }
+#skip-open{
+  position:absolute; top:22px; right:22px; z-index:5;
+  background:rgba(20,20,10,.28); border:1px solid rgba(255,244,220,.5);
+  color:#fbf3df; font-family:var(--label); font-size:.62rem; letter-spacing:.2em;
+  text-transform:uppercase; padding:9px 16px; border-radius:2px; backdrop-filter:blur(4px);
+}
+#opening .op-tap{
+  position:absolute; inset:0; background:transparent; border:none;
+}
+
+/* ============================================================
+   SECTION GENERIC
+   ============================================================ */
+section{ position:relative; }
+.bleed{
+  min-height:100vh; display:flex; align-items:center; justify-content:center;
+  background-size:cover; background-position:center; position:relative; overflow:hidden;
+}
+.wrap{ max-width:1180px; margin:0 auto; padding:0 26px; width:100%; }
+.card-inner{ position:relative; z-index:2; text-align:center; color:var(--ivory); }
+
+.pill-btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 34px; border:1px solid var(--gold); background:transparent;
+  color:var(--green); font-family:var(--label); font-size:.66rem; letter-spacing:.22em; text-transform:uppercase;
+  text-decoration:none; transition:background .4s ease, color .4s ease, border-color .4s ease; border-radius:1px;
+}
+.pill-btn:hover{ background:var(--green); color:var(--ivory-deep); border-color:var(--green); }
+.pill-btn.on-dark{ color:var(--ivory-deep); border-color:rgba(248,242,228,.7); }
+.pill-btn.on-dark:hover{ background:var(--ivory-deep); color:var(--green-deep); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+#home{ background:#000; }
+#home .bg{
+  position:absolute; inset:0; background-image:url('assets/bg3.jpg'); background-size:cover; background-position:60% center;
+  transform:scale(1.08); will-change:transform;
+}
+#home .vignette{
+  position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(58% 68% at 50% 48%, rgba(42,28,10,.28), transparent 82%),
+    linear-gradient(180deg, rgba(20,14,5,.14), rgba(20,14,5,.06) 48%, rgba(20,14,5,.3) 100%);
+}
+#home .card-inner{ padding-top:70px; }
+#home .monogram{ width:66px; height:66px; margin:0 auto 22px; opacity:.95; filter:drop-shadow(0 2px 10px rgba(0,0,0,.5)); }
+#home .eyebrow{ color:#E2B969; text-shadow:0 2px 5px rgba(20,12,3,.8), 0 2px 14px rgba(0,0,0,.6); }
+#home h1{
+  color:#FBF6E9; font-size:clamp(2.4rem, 6vw, 4.4rem); line-height:1.1; margin:16px 0 10px;
+  text-shadow:0 2px 3px rgba(20,12,3,.85), 0 4px 12px rgba(0,0,0,.7), 0 10px 40px rgba(0,0,0,.55);
+}
+#home h1 em{ font-style:italic; display:block; font-size:.5em; color:#E2B969; margin:10px 0; letter-spacing:.05em; text-shadow:0 2px 4px rgba(20,12,3,.8); }
+#home .rec-label{ font-family:var(--label); letter-spacing:.3em; text-transform:uppercase; font-size:.78rem; color:#FFF3D5; margin:18px 0 22px; text-shadow:0 2px 4px rgba(20,12,3,.85), 0 2px 12px rgba(0,0,0,.65); }
+#home .datetime{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; color:#FFF3D5; font-family:var(--body); font-size:1.05rem; letter-spacing:.03em; text-shadow:0 2px 4px rgba(20,12,3,.85), 0 2px 12px rgba(0,0,0,.6); }
+#home .datetime span{ position:relative; padding:0 20px; }
+#home .datetime span:not(:last-child)::after{ content:'•'; position:absolute; right:-4px; color:var(--gold); }
+@media(max-width:720px){
+  #home .card-inner{ padding-top:24px; }
+}
+.scroll-cue{
+  position:absolute; bottom:38px; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:8px; color:#FFF8E8; z-index:3;
+  font-family:var(--label); font-size:.66rem; letter-spacing:.3em; text-transform:uppercase;
+  text-shadow:0 2px 8px rgba(30,20,5,.8);
+}
+.scroll-cue .line{ width:2px; height:38px; background:linear-gradient(180deg, #FFF8E8, rgba(255,248,232,.05)); box-shadow:0 0 8px rgba(30,20,5,.55); animation:cueMove 2.2s ease-in-out infinite; }
+@keyframes cueMove{ 0%{ transform:scaleY(.3); transform-origin:top;} 50%{transform:scaleY(1); transform-origin:top;} 100%{transform:scaleY(.3); transform-origin:bottom;} }
+
+/* ============================================================
+   INVITATION CARD SECTION
+   ============================================================ */
+#invitation{ background-image:url('assets/bg3.jpg'); background-size:cover; background-position:center; padding:150px 0; position:relative; }
+#invitation::before{ content:''; position:absolute; inset:0; background:rgba(248,242,228,.62); }
+.inv-card{
+  position:relative; z-index:2; max-width:680px; margin:0 auto; background:var(--ivory-card);
+  border:1px solid var(--gold-line); padding:70px 48px; text-align:center;
+  box-shadow:0 40px 90px rgba(60,42,20,.18);
+}
+.inv-card::before{ content:''; position:absolute; inset:14px; border:1px solid rgba(176,129,60,.35); pointer-events:none; }
+.inv-card .om{ font-family:var(--body); color:var(--maroon); letter-spacing:.08em; font-size:1.05rem; margin-bottom:18px; }
+.inv-card .rec-title{ font-family:var(--label); letter-spacing:.3em; text-transform:uppercase; color:var(--gold); font-size:.85rem; margin-bottom:22px; }
+.inv-card .host{ font-family:var(--special); font-style:italic; font-size:1.3rem; color:var(--green); }
+.inv-card .host-addr{ font-family:var(--body); color:var(--brown); font-size:.92rem; margin-top:6px; letter-spacing:.02em; line-height:1.6; }
+.inv-card .invite-line{ font-size:1.08rem; line-height:1.75; color:var(--ink); margin:26px auto; max-width:480px; }
+.inv-card .couple-names{ font-family:var(--display); font-size:clamp(1.9rem,4.2vw,2.7rem); color:var(--green); line-height:1.35; }
+.inv-card .amp{ display:block; font-family:var(--special); font-style:italic; color:var(--gold); font-size:.7em; margin:4px 0; }
+.inv-card .fam-line{ font-size:1rem; }
+
+/* ============================================================
+   DATE EXPERIENCE
+   ============================================================ */
+#date{ background:var(--green); padding:140px 0; text-align:center; color:var(--ivory-deep); position:relative; overflow:hidden; }
+#date::after{ content:''; position:absolute; inset:0; background:radial-gradient(60% 50% at 50% 40%, rgba(211,167,91,.12), transparent 70%); pointer-events:none; }
+.date-num{
+  font-family:var(--display); font-weight:600; font-size:clamp(6rem,20vw,12rem); line-height:.85; color:var(--ivory-card);
+  text-shadow: 0 1px 0 rgba(255,255,255,.25), 0 3px 0 rgba(0,0,0,.12), 0 14px 40px rgba(0,0,0,.45);
+  position:relative; z-index:2;
+}
+.date-month{ font-family:var(--label); letter-spacing:.5em; font-size:clamp(1rem,2.4vw,1.5rem); color:var(--gold-bright); margin-top:6px; text-transform:uppercase; }
+.date-year{ font-family:var(--body); font-size:1.1rem; color:#D8CFB4; margin-top:6px; letter-spacing:.08em; }
+.date-sub{ margin-top:34px; font-family:var(--special); font-style:italic; font-size:1.5rem; color:var(--ivory-card); }
+.date-mal{ margin-top:10px; font-family:var(--body); color:var(--gold-bright); font-size:.95rem; letter-spacing:.05em; }
+
+/* ============================================================
+   CELEBRATIONS & EVENTS (PROGRAMME)
+   ============================================================ */
+#reception{ background-image:url('assets/bg3.jpg'); background-size:cover; background-position:center; padding:140px 0; position:relative; }
+#reception::before{ content:''; position:absolute; inset:0; background:rgba(248,242,228,.7); }
+
+.events-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:26px;
+  position:relative;
+  z-index:2;
+  max-width:1120px;
+  margin:40px auto 0;
+}
+.event-card{
+  background:var(--ivory-card);
+  border:1px solid var(--gold-line);
+  padding:44px 26px 36px;
+  text-align:center;
+  box-shadow:0 24px 60px rgba(60,42,20,.12);
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.event-card:hover{
+  transform: translateY(-5px);
+  box-shadow:0 30px 80px rgba(60,42,20,.18);
+}
+.event-card::before{
+  content:'';
+  position:absolute;
+  inset:10px;
+  border:1px solid rgba(176,129,60,.28);
+  pointer-events:none;
+}
+.event-card.featured{
+  border-color:var(--gold);
+  background:linear-gradient(180deg, #FCF8EE 0%, var(--ivory-card) 100%);
+}
+.rec-time{ font-family:var(--display); font-size:clamp(1.8rem,3.2vw,2.3rem); color:var(--green); font-weight:600; line-height:1.15; }
+.rec-venue-name{ font-family:var(--special); font-style:italic; font-size:1.45rem; color:var(--maroon); margin-top:16px; }
+.rec-venue-addr{ font-family:var(--body); color:var(--brown); margin-top:8px; letter-spacing:.02em; font-size:.95rem; line-height:1.5; }
+.event-badge{
+  display:inline-block;
+  margin-top:8px;
+  font-family:var(--label);
+  font-size:.65rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+.event-card .pill-btn{ padding:11px 24px; font-size:.62rem; }
+
+@media(max-width:960px){
+  .events-grid{ grid-template-columns:1fr; max-width:480px; }
+}
+
+/* ============================================================
+   GALLERY
+   ============================================================ */
+#gallery{ background:var(--green-deep); padding:140px 0 160px; }
+#gallery .head{ text-align:center; color:var(--ivory-deep); margin-bottom:70px; }
+#gallery .head h2{ color:var(--ivory-card); font-size:clamp(2rem,4vw,2.8rem); margin-top:12px; }
+.gal-grid{ position:relative; max-width:980px; margin:0 auto; min-height:760px; }
+.gal-item{ position:absolute; overflow:hidden; box-shadow:0 30px 70px rgba(0,0,0,.5); border:8px solid var(--ivory-card); cursor:pointer; }
+.gal-item img{ width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease); }
+.gal-item:hover img{ transform:scale(1.06); }
+.gal-1{ width:52%; top:0; left:0; z-index:2; }
+.gal-2{ width:38%; top:8%; right:0; z-index:1; transform:rotate(-2deg); }
+.gal-3{ width:44%; bottom:0; left:16%; z-index:3; transform:rotate(2deg); }
+@media(max-width:820px){
+  .gal-grid{ min-height:0; display:flex; flex-direction:column; gap:26px; }
+  .gal-item{ position:relative; width:100% !important; top:auto; left:auto; right:auto; bottom:auto; transform:none !important; }
+}
+
+/* lightbox */
+#lightbox{ position:fixed; inset:0; z-index:120; background:rgba(10,14,8,.95); display:none; align-items:center; justify-content:center; }
+#lightbox.open{ display:flex; }
+#lightbox img{ max-width:88vw; max-height:82vh; box-shadow:0 30px 90px rgba(0,0,0,.6); }
+#lightbox .lb-close, #lightbox .lb-nav{
+  position:absolute; background:transparent; border:1px solid rgba(248,242,228,.5); color:var(--ivory-card);
+  width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.1rem;
+}
+#lightbox .lb-close{ top:24px; right:24px; }
+#lightbox .lb-prev{ left:16px; top:50%; transform:translateY(-50%); }
+#lightbox .lb-next{ right:16px; top:50%; transform:translateY(-50%); }
+
+/* ============================================================
+   VENUE
+   ============================================================ */
+#venue{ background:var(--ivory); padding:130px 0; text-align:center; }
+#venue .pin{ width:36px; height:36px; margin:0 auto 18px; color:var(--gold); }
+#venue h2{ font-size:clamp(2rem,4vw,2.8rem); }
+#venue .addr{ font-family:var(--body); color:var(--brown); margin-top:10px; font-size:1.08rem; }
+.venue-pills{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:28px 0 16px; }
+.venue-tab{
+  padding:10px 22px;
+  background:transparent;
+  border:1px solid var(--gold-line);
+  color:var(--green);
+  font-family:var(--label);
+  font-size:.64rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  transition:all .35s ease;
+  border-radius:2px;
+}
+.venue-tab.active, .venue-tab:hover{
+  background:var(--green);
+  color:var(--ivory-deep);
+  border-color:var(--green);
+}
+#venue .btn-row{ margin-top:28px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+#venue .map-frame{ margin-top:46px; max-width:820px; margin-left:auto; margin-right:auto; border:1px solid var(--gold-line); box-shadow:0 20px 50px rgba(60,42,20,.1); }
+#venue iframe{ width:100%; height:380px; border:0; display:block; filter:sepia(.12) saturate(1.05); }
+
+/* ============================================================
+   CLOSING
+   ============================================================ */
+#closing{ background-image:url('assets/bg3.jpg'); background-size:cover; background-position:center; padding:160px 0 120px; position:relative; text-align:center; }
+#closing::before{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,22,14,.55), rgba(10,16,10,.82)); }
+#closing .c-inner{ position:relative; z-index:2; color:var(--ivory-deep); }
+.diya{ width:40px; height:56px; margin:0 auto 26px; position:relative; }
+.diya .flame{
+  position:absolute; left:50%; top:0; width:10px; height:20px; transform:translateX(-50%);
+  background:radial-gradient(circle at 50% 30%, #FFEFC0, var(--gold-bright) 55%, transparent 80%);
+  border-radius:50% 50% 50% 50%/60% 60% 40% 40%;
+  animation:flicker 2.4s ease-in-out infinite;
+  filter:blur(.3px);
+}
+@keyframes flicker{
+  0%,100%{ opacity:1; transform:translateX(-50%) scale(1) rotate(0deg); }
+  25%{ opacity:.85; transform:translateX(-52%) scale(.96,1.04) rotate(-2deg); }
+  50%{ opacity:1; transform:translateX(-48%) scale(1.05,.97) rotate(1deg); }
+  75%{ opacity:.9; transform:translateX(-51%) scale(.98,1.02) rotate(-1deg); }
+}
+#closing .compliments{ font-family:var(--label); letter-spacing:.28em; text-transform:uppercase; color:var(--gold-bright); font-size:.8rem; }
+#closing .closing-line{ margin-top:34px; font-size:1.15rem; line-height:1.8; color:#DCD3BE; max-width:480px; margin-left:auto; margin-right:auto; }
+#closing .final-names{ margin-top:34px; font-family:var(--display); font-size:clamp(1.9rem,4vw,2.7rem); color:var(--ivory-card); }
+#closing .final-names small{ display:block; font-family:var(--label); letter-spacing:.2em; font-size:.65rem; color:var(--gold-bright); margin-top:10px; text-transform:uppercase; }
+
+footer.site-foot{ background:var(--green-deep); text-align:center; padding:28px 20px; color:rgba(248,242,228,.55); font-family:var(--label); font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; }
+
+/* sound toggle */
+#sound-toggle{
+  position:fixed; left:22px; bottom:22px; z-index:70;
+  width:48px; height:48px; border-radius:50%; background:rgba(30,59,44,.9); color:var(--ivory-deep);
+  border:1px solid var(--gold-line); display:flex; align-items:center; justify-content:center;
+  opacity:0; transition:opacity 1s ease .5s;
+}
+body.site-ready #sound-toggle{ opacity:.92; }
+#sound-toggle svg{ width:20px; height:20px; }
+
+.hidden-audio-note{ display:none; }
+</style>
+</head>
+<body class="opening">
+
+<!-- ===================== FIXED GOLD FRAME ===================== -->
+<div class="frame" aria-hidden="true">
+  <svg class="corner tl" viewBox="0 0 60 60"><path d="M2 40 Q2 2 40 2" fill="none" stroke="#B0813C" stroke-width="1.2"/><path d="M2 26 Q2 2 26 2" fill="none" stroke="#B0813C" stroke-width="1"/><circle cx="2" cy="2" r="2.4" fill="#B0813C"/></svg>
+  <svg class="corner tr" viewBox="0 0 60 60"><path d="M2 40 Q2 2 40 2" fill="none" stroke="#B0813C" stroke-width="1.2"/><path d="M2 26 Q2 2 26 2" fill="none" stroke="#B0813C" stroke-width="1"/><circle cx="2" cy="2" r="2.4" fill="#B0813C"/></svg>
+  <svg class="corner bl" viewBox="0 0 60 60"><path d="M2 40 Q2 2 40 2" fill="none" stroke="#B0813C" stroke-width="1.2"/><path d="M2 26 Q2 2 26 2" fill="none" stroke="#B0813C" stroke-width="1"/><circle cx="2" cy="2" r="2.4" fill="#B0813C"/></svg>
+  <svg class="corner br" viewBox="0 0 60 60"><path d="M2 40 Q2 2 40 2" fill="none" stroke="#B0813C" stroke-width="1.2"/><path d="M2 26 Q2 2 26 2" fill="none" stroke="#B0813C" stroke-width="1"/><circle cx="2" cy="2" r="2.4" fill="#B0813C"/></svg>
+</div>
+
+<!-- ===================== OPENING VIDEO ===================== -->
+<div id="opening">
+  <button class="op-tap" id="op-tap" aria-label="Begin invitation"></button>
+  <video id="op-video" src="assets/opening.mp4" poster="assets/opening-poster.jpg" muted playsinline preload="auto"></video>
+  <div class="veil"></div>
+  <button id="skip-open">Skip ↦</button>
+  <div class="op-hint" id="op-hint">Tap anywhere<span>✦</span></div>
+</div>
+
+<button id="sound-toggle" aria-label="Toggle music" title="Toggle background music">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9v6h4l5 4V5L8 9H4z" stroke-linejoin="round"/><path id="sound-x" d="M17 9l4 6M21 9l-4 6" stroke-linecap="round"/></svg>
+</button>
+<audio id="bgm" loop class="hidden-audio-note" src="assets/neelashalabam.mp3"></audio>
+
+<!-- ===================== HERO ===================== -->
+<section id="home" class="bleed">
+  <div class="bg" id="hero-bg"></div>
+  <div class="vignette"></div>
+  <div class="wrap card-inner">
+    <svg class="monogram" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="#D3A75B" stroke-width="1.4"/><circle cx="50" cy="50" r="41" fill="none" stroke="#D3A75B" stroke-width="0.8"/><text x="50" y="60" font-family="Playfair Display, serif" font-style="italic" font-size="30" fill="#FBF6E9" text-anchor="middle">S&amp;M</text></svg>
+    <p class="eyebrow">Together with their families</p>
+    <h1>Sethu A. N.<em>&amp;</em>Meghana M. M.</h1>
+    <p class="rec-label">Wedding Invitation</p>
+    <div class="datetime">
+      <span>Saturday, December 5, 2026</span>
+      <span>Thrissur, Kerala</span>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
+</section>
+
+<!-- ===================== INVITATION DETAILS (incl. family) ===================== -->
+<section id="invitation">
+  <div class="wrap">
+    <div class="inv-card" data-reveal="scale">
+      <p class="om">❖ With the Blessings of Our Families ❖</p>
+      <p class="rec-title">Wedding Invitation</p>
+
+      <p class="invite-line">
+        We joyfully invite you and your family to grace the auspicious occasion of the marriage of
+      </p>
+
+      <p class="couple-names">Sethu A. N.<span class="amp">&amp;</span>Meghana M. M.</p>
+
+      <div class="divider"></div>
+
+      <div style="margin:24px 0;">
+        <p class="invite-line fam-line" style="margin:0 0 4px; font-weight:500; color:var(--green);">Son of</p>
+        <p class="host">Mr. Nandanan A. V. &amp; Mrs. Pushpa Nandanan</p>
+        <p class="host-addr">Attuveppil House, Madakkathara P.O., Vellanikkara</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div style="margin:24px 0;">
+        <p class="invite-line fam-line" style="margin:0 0 4px; font-weight:500; color:var(--green);">Daughter of</p>
+        <p class="host">Mr. Mohandas &amp; Mrs. Mini Mohandas</p>
+        <p class="host-addr">Mullathadathil House, Pathiyarkulangara P.O., Elavanthoor<br>PIN: 680552 · Phone: 9562494240</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <p class="invite-line" style="margin:22px auto 0; font-size:1.02rem; color:var(--maroon); font-style:italic;">
+        Solemnised under the Special Marriage Act<br>
+        on Saturday, December 5, 2026 at Mullassery Sub Registrar Office
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DATE ===================== -->
+<section id="date">
+  <div class="wrap" data-reveal="scale">
+    <div class="date-num">05</div>
+    <div class="date-month">December</div>
+    <div class="date-year">2026</div>
+    <div class="date-sub">Saturday</div>
+    <div class="date-mal">Vrischikam 19, 1202</div>
+  </div>
+</section>
+
+<!-- ===================== CELEBRATIONS & EVENTS ===================== -->
+<section id="reception">
+  <div class="wrap">
+    <div style="text-align:center; position:relative; z-index:2; margin-bottom:40px;" data-reveal>
+      <p class="eyebrow">Wedding Celebrations</p>
+      <h2 style="font-size:clamp(2rem,4.4vw,3.2rem); margin-top:8px;">Programme &amp; Events</h2>
+      <p style="font-family:var(--body); color:var(--brown); font-size:1.15rem; margin-top:6px;">Saturday, December 5, 2026</p>
+    </div>
+
+    <div class="events-grid" data-reveal="scale">
+      <!-- Event 1: Marriage Registration -->
+      <div class="event-card">
+        <div>
+          <p class="eyebrow">Marriage Solemnisation</p>
+          <p class="rec-time" style="font-size:1.9rem; margin:12px 0 6px;">10:00 AM</p>
+          <div class="divider" style="margin:14px auto;"></div>
+          <p class="rec-venue-name" style="margin-top:10px; font-size:1.35rem;">Sub Registrar Office</p>
+          <p class="rec-venue-addr">Mullassery, Thrissur</p>
+          <span class="event-badge">Under Special Marriage Act</span>
+        </div>
+        <div style="margin-top:26px;">
+          <a class="pill-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Sub+Registrar+Office+Mullassery">Get Directions</a>
+        </div>
+      </div>
+
+      <!-- Event 2: Wedding Feast (Sadhya) -->
+      <div class="event-card featured">
+        <div>
+          <p class="eyebrow" style="color:var(--maroon);">Wedding Feast · Sadhya</p>
+          <p class="rec-time" style="font-size:1.9rem; margin:12px 0 6px;">11:00 AM Onwards</p>
+          <div class="divider" style="margin:14px auto;"></div>
+          <p class="rec-venue-name" style="margin-top:10px; font-size:1.35rem;">Parappur Church Hall</p>
+          <p class="rec-venue-addr">Parappur, Thrissur</p>
+          <span class="event-badge">Traditional Wedding Sadhya</span>
+        </div>
+        <div style="margin-top:26px;">
+          <a class="pill-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Parappur+Church+Hall+Parappur">Get Directions</a>
+        </div>
+      </div>
+
+      <!-- Event 3: Evening Reception -->
+      <div class="event-card">
+        <div>
+          <p class="eyebrow">Wedding Reception</p>
+          <p class="rec-time" style="font-size:1.9rem; margin:12px 0 6px;">5:00 PM Onwards</p>
+          <div class="divider" style="margin:14px auto;"></div>
+          <p class="rec-venue-name" style="margin-top:10px; font-size:1.35rem;">St. Mary's Church Hall</p>
+          <p class="rec-venue-addr">Golden Jubilee Hall, Ponganamkad</p>
+          <span class="event-badge">Evening Virunnu &amp; Dinner</span>
+        </div>
+        <div style="margin-top:26px;">
+          <a class="pill-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=St+Marys+Church+Golden+Jubilee+Hall+Ponganamkad">Get Directions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <p class="eyebrow">The Cinematic Album</p>
+      <h2>A Few Frames of Us</h2>
+    </div>
+    <div class="gal-grid" data-reveal="scale">
+      <div class="gal-item gal-1" data-full="assets/couple1.jpeg"><img src="assets/couple1.jpeg" alt="Sethu and Meghana"></div>
+      <!-- <div class="gal-item gal-2" data-full="assets/couple2.jpg"><img src="assets/couple2.jpg" alt="Sethu and Meghana candid"></div> -->
+      <!-- <div class="gal-item gal-3" data-full="assets/couple3.jpg"><img src="assets/couple3.jpg" alt="Sethu and Meghana celebration"></div> -->
+    </div>
+  </div>
+</section>
+
+<div id="lightbox">
+  <button class="lb-close" id="lb-close">✕</button>
+  <button class="lb-nav lb-prev" id="lb-prev">‹</button>
+  <img id="lb-img" src="" alt="">
+  <button class="lb-nav lb-next" id="lb-next">›</button>
+</div>
+
+<!-- ===================== VENUE & MAPS ===================== -->
+<section id="venue">
+  <div class="wrap" data-reveal>
+    <svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s7-7.58 7-13a7 7 0 10-14 0c0 5.42 7 13 7 13z"/><circle cx="12" cy="9" r="2.4"/></svg>
+    <p class="eyebrow">Locations &amp; Directions</p>
+    <h2 id="active-venue-title">Parappur Church Hall</h2>
+    <p class="addr" id="active-venue-addr">Parappur, Thrissur, Kerala — Wedding Feast (Sadhya) · From 11:00 AM</p>
+
+    <!-- Venue selection tabs -->
+    <div class="venue-pills">
+      <button type="button" class="venue-tab active" data-vindex="0">Parappur Church Hall</button>
+      <button type="button" class="venue-tab" data-vindex="1">St. Mary's Golden Jubilee Hall</button>
+      <button type="button" class="venue-tab" data-vindex="2">Mullassery Sub Registrar Office</button>
+    </div>
+
+    <div class="btn-row">
+      <a class="pill-btn" id="venue-maps-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Parappur+Church+Hall+Parappur">View on Google Maps</a>
+      <a class="pill-btn" id="venue-dir-link" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Parappur+Church+Hall+Parappur">Get Directions</a>
+    </div>
+
+    <div class="map-frame">
+      <iframe id="venue-iframe" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Parappur+Church+Hall+Parappur&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CLOSING ===================== -->
+<section id="closing">
+  <div class="wrap c-inner">
+    <div class="diya"><div class="flame"></div></div>
+    <p class="compliments">❖ With Best Compliments ❖</p>
+
+    <div style="margin-top:20px; font-family:var(--special); font-style:italic; font-size:1.25rem; color:var(--ivory-card); line-height:1.9;">
+      <p style="margin:4px 0;">
+        <span style="font-family:var(--label); font-style:normal; font-size:.68rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-bright); display:block; margin-bottom:3px;">With Love</span>
+        Nisha &amp; Hareesh
+      </p>
+      <p style="margin:20px 0 4px;">
+        <span style="font-family:var(--label); font-style:normal; font-size:.68rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-bright); display:block; margin-bottom:3px;">With Love &amp; Happiness</span>
+        Jisha · Midhun · Amal · Athul
+      </p>
+    </div>
+
+    <div class="divider" style="background:rgba(211,167,91,.4); margin:34px auto;"></div>
+
+    <p class="closing-line">
+      We warmly invite you to grace this joyous occasion with your presence and blessings as we begin our new journey together.
+    </p>
+
+    <p class="final-names">Sethu A. N. &amp; Meghana M. M.<small>and Families</small></p>
+
+    <p style="margin-top:22px; font-family:var(--body); font-size:1rem; color:var(--gold-bright); letter-spacing:.04em;">
+      Contact: 9562494240
+    </p>
+  </div>
+</section>
+
+<footer class="site-foot">Wedding Invitation · Saturday, December 5, 2026 · Thrissur, Kerala</footer>
+
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------------- OPENING VIDEO ---------------- */
+  var opening = document.getElementById('opening');
+  var video = document.getElementById('op-video');
+  var hint = document.getElementById('op-hint');
+  var body = document.body;
+  var started = false;
+  var bgm = document.getElementById('bgm');
+  var soundBtn = document.getElementById('sound-toggle');
+  var musicPlaying = false;
+
+  function finishOpening(){
+    if(opening.classList.contains('hide')) return;
+    opening.classList.add('hide');
+    body.classList.remove('opening');
+    body.classList.remove('lock');
+    body.classList.add('site-ready');
+    setTimeout(function(){ opening.style.display='none'; }, 1500);
+  }
+
+  function startVideo(){
+    if(started) return;
+    started = true;
+    hint.style.display='none';
+    video.play().catch(function(){ finishOpening(); });
+    if(bgm.src){
+      bgm.play().then(function(){ musicPlaying = true; }).catch(function(){ musicPlaying = false; });
+    }
+  }
+
+  body.classList.add('lock');
+
+  video.addEventListener('loadeddata', function(){
+    if(!started){ video.currentTime = 0; }
+  });
+
+  if(reduceMotion){
+    finishOpening();
+  } else {
+    video.addEventListener('ended', finishOpening);
+    document.getElementById('op-tap').addEventListener('click', startVideo);
+    document.getElementById('skip-open').addEventListener('click', function(e){ e.stopPropagation(); finishOpening(); });
+  }
+
+  /* ---------------- REVEAL ON SCROLL ---------------- */
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  var revealObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); revealObs.unobserve(en.target); }
+    });
+  }, {threshold:.2});
+  revealEls.forEach(function(el){ revealObs.observe(el); });
+
+  /* ---------------- PARALLAX HERO ---------------- */
+  if(!reduceMotion){
+    var heroBg = document.getElementById('hero-bg');
+    window.addEventListener('scroll', function(){
+      var y = window.scrollY;
+      if(y < window.innerHeight*1.2){
+        heroBg.style.transform = 'scale(1.08) translateY(' + (y*0.12) + 'px)';
+      }
+    }, {passive:true});
+  }
+
+  /* ---------------- GALLERY LIGHTBOX ---------------- */
+  var galItems = document.querySelectorAll('.gal-item');
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lb-img');
+  var sources = Array.prototype.map.call(galItems, function(g){ return g.getAttribute('data-full'); });
+  var lbIndex = 0;
+  function openLb(i){ lbIndex = i; lbImg.src = sources[i]; lb.classList.add('open'); }
+  galItems.forEach(function(g,i){ g.addEventListener('click', function(){ openLb(i); }); });
+  document.getElementById('lb-close').addEventListener('click', function(){ lb.classList.remove('open'); });
+  document.getElementById('lb-prev').addEventListener('click', function(){ openLb((lbIndex-1+sources.length)%sources.length); });
+  document.getElementById('lb-next').addEventListener('click', function(){ openLb((lbIndex+1)%sources.length); });
+  lb.addEventListener('click', function(e){ if(e.target===lb) lb.classList.remove('open'); });
+
+  /* ---------------- VENUE MAP TABS ---------------- */
+  var venues = [
+    {
+      title: "Parappur Church Hall",
+      addr: "Parappur, Thrissur, Kerala — Wedding Feast (Sadhya) · From 11:00 AM",
+      query: "Parappur Church Hall Parappur"
+    },
+    {
+      title: "St. Mary's Church Golden Jubilee Hall",
+      addr: "Ponganamkad, Thrissur, Kerala — Wedding Reception · 5:00 PM Onwards",
+      query: "St Marys Church Golden Jubilee Hall Ponganamkad"
+    },
+    {
+      title: "Mullassery Sub Registrar Office",
+      addr: "Mullassery, Thrissur, Kerala — Marriage Solemnisation · 10:00 AM",
+      query: "Sub Registrar Office Mullassery"
+    }
+  ];
+  var tabs = document.querySelectorAll('.venue-tab');
+  var vTitle = document.getElementById('active-venue-title');
+  var vAddr = document.getElementById('active-venue-addr');
+  var vLink = document.getElementById('venue-maps-link');
+  var vDir = document.getElementById('venue-dir-link');
+  var vIframe = document.getElementById('venue-iframe');
+
+  if(tabs.length && vTitle && vIframe){
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        tabs.forEach(function(t){ t.classList.remove('active'); });
+        tab.classList.add('active');
+        var idx = parseInt(tab.getAttribute('data-vindex'), 10);
+        var v = venues[idx];
+        vTitle.textContent = v.title;
+        vAddr.textContent = v.addr;
+        var q = encodeURIComponent(v.query);
+        vLink.href = 'https://www.google.com/maps/search/?api=1&query=' + q;
+        vDir.href = 'https://www.google.com/maps/dir/?api=1&destination=' + q;
+        vIframe.src = 'https://www.google.com/maps?q=' + q + '&output=embed';
+      });
+    });
+  }
+
+  /* ---------------- SOUND TOGGLE ---------------- */
+  soundBtn.addEventListener('click', function(){
+    if(!bgm.src){ soundBtn.style.opacity = .5; return; }
+    if(musicPlaying){ bgm.pause(); } else { bgm.play().catch(function(){}); }
+    musicPlaying = !musicPlaying;
+  });
+})();
+</script>
+</body>
+</html>
