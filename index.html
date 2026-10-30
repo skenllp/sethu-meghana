@@ -131,41 +131,54 @@ body.opening .frame{ opacity:0; }
 }
 
 /* ============================================================
-   OPENING — physical invitation video
+   OPENING — Invitation Cover
    ============================================================ */
 #opening{
   position:fixed; inset:0; z-index:100;
-  background: radial-gradient(120% 120% at 50% 30%, #efe2c4 0%, #d9c69a 55%, #b89b66 100%);
+  background-color: #12100d;
   display:flex; align-items:center; justify-content:center;
-  transition: opacity 1.4s var(--ease), transform 1.4s var(--ease);
+  transition: opacity 1.2s var(--ease), transform 1.2s var(--ease);
+  overflow:hidden;
 }
-#opening.hide{ opacity:0; transform:scale(1.06); pointer-events:none; }
-#opening video{
-  height:100vh; max-height:100vh; width:auto; max-width:100vw;
-  object-fit:cover; box-shadow:0 40px 90px rgba(30,20,5,.45);
+#opening.hide{ opacity:0; transform:scale(1.04); pointer-events:none; }
+#opening .op-bg{
+  position:absolute; inset:0;
+  background-image:url('assets/opening-poster.jpg');
+  background-size:cover;
+  background-position:center;
+  transform:scale(1.02);
+  transition:transform 1.8s var(--ease);
 }
-#opening .veil{
-  position:absolute; inset:0; background:
-    linear-gradient(180deg, rgba(35,24,10,.16), rgba(35,24,10,.08) 42%, rgba(35,24,10,.2) 54%, rgba(20,14,4,.36) 82%, rgba(20,14,4,.44) 100%),
-    radial-gradient(90% 62% at 50% 48%, rgba(48,31,10,.2), transparent 72%),
-    radial-gradient(90% 60% at 50% 8%, rgba(40,26,8,.42), transparent 60%),
-    radial-gradient(90% 60% at 50% 100%, rgba(20,14,4,.58), transparent 55%);
-  pointer-events:none;
+#opening.hide .op-bg{
+  transform:scale(1.08);
 }
-#opening .op-hint{
-  position:absolute; bottom:9%; left:50%; transform:translateX(-50%);
-  color:#fbf3df; font-family:var(--label); font-size:.66rem; letter-spacing:.32em; text-transform:uppercase;
-  opacity:.85; text-align:center; text-shadow:0 2px 10px rgba(0,0,0,.4);
+#op-enter-btn{
+  position:absolute;
+  bottom:11%;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:5;
+  background:rgba(20,16,10,.6);
+  border:1px solid rgba(226,185,105,.85);
+  color:#FAF4E8;
+  font-family:var(--label);
+  font-size:.76rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  padding:16px 42px;
+  border-radius:2px;
+  backdrop-filter:blur(8px);
+  box-shadow:0 12px 34px rgba(0,0,0,.5), inset 0 0 16px rgba(226,185,105,.15);
+  transition:all .45s var(--ease);
+  cursor:pointer;
+  white-space:nowrap;
 }
-#opening .op-hint span{ display:block; margin-top:6px; font-size:1.1rem; }
-#skip-open{
-  position:absolute; top:22px; right:22px; z-index:5;
-  background:rgba(20,20,10,.28); border:1px solid rgba(255,244,220,.5);
-  color:#fbf3df; font-family:var(--label); font-size:.62rem; letter-spacing:.2em;
-  text-transform:uppercase; padding:9px 16px; border-radius:2px; backdrop-filter:blur(4px);
-}
-#opening .op-tap{
-  position:absolute; inset:0; background:transparent; border:none;
+#op-enter-btn:hover{
+  background:rgba(226,185,105,.95);
+  color:#1A140B;
+  border-color:#E2B969;
+  transform:translateX(-50%) translateY(-3px);
+  box-shadow:0 16px 40px rgba(0,0,0,.6);
 }
 
 /* ============================================================
@@ -250,9 +263,9 @@ section{ position:relative; }
 .inv-card .fam-line{ font-size:1rem; }
 
 /* ============================================================
-   DATE EXPERIENCE
+   DATE EXPERIENCE & COUNTDOWN
    ============================================================ */
-#date{ background:var(--green); padding:140px 0; text-align:center; color:var(--ivory-deep); position:relative; overflow:hidden; }
+#date{ background:var(--green); padding:130px 0 120px; text-align:center; color:var(--ivory-deep); position:relative; overflow:hidden; }
 #date::after{ content:''; position:absolute; inset:0; background:radial-gradient(60% 50% at 50% 40%, rgba(211,167,91,.12), transparent 70%); pointer-events:none; }
 .date-num{
   font-family:var(--display); font-weight:600; font-size:clamp(6rem,20vw,12rem); line-height:.85; color:var(--ivory-card);
@@ -261,8 +274,73 @@ section{ position:relative; }
 }
 .date-month{ font-family:var(--label); letter-spacing:.5em; font-size:clamp(1rem,2.4vw,1.5rem); color:var(--gold-bright); margin-top:6px; text-transform:uppercase; }
 .date-year{ font-family:var(--body); font-size:1.1rem; color:#D8CFB4; margin-top:6px; letter-spacing:.08em; }
-.date-sub{ margin-top:34px; font-family:var(--special); font-style:italic; font-size:1.5rem; color:var(--ivory-card); }
+.date-sub{ margin-top:30px; font-family:var(--special); font-style:italic; font-size:1.5rem; color:var(--ivory-card); }
 .date-mal{ margin-top:10px; font-family:var(--body); color:var(--gold-bright); font-size:.95rem; letter-spacing:.05em; }
+
+/* Countdown Timer */
+.countdown-container{
+  margin-top:42px;
+  position:relative;
+  z-index:2;
+}
+.countdown-eyebrow{
+  font-family:var(--label);
+  font-size:.65rem;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--gold-bright);
+  margin-bottom:20px;
+  opacity:.9;
+}
+.countdown-grid{
+  display:inline-flex;
+  gap:16px;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  max-width:680px;
+  padding:0 12px;
+}
+.countdown-box{
+  background:rgba(251,246,234,0.06);
+  border:1px solid rgba(211,167,91,0.38);
+  border-radius:2px;
+  min-width:88px;
+  padding:16px 14px 12px;
+  backdrop-filter:blur(6px);
+  box-shadow:0 10px 24px rgba(0,0,0,.2), inset 0 0 12px rgba(211,167,91,.08);
+  transition:border-color .3s ease, transform .3s ease;
+}
+.countdown-box:hover{
+  border-color:var(--gold-bright);
+  transform:translateY(-2px);
+}
+.countdown-num{
+  font-family:var(--display);
+  font-size:clamp(2rem, 5vw, 2.8rem);
+  font-weight:600;
+  line-height:1;
+  color:var(--ivory-card);
+  text-shadow:0 2px 10px rgba(0,0,0,.4);
+  display:block;
+  min-height:1.05em;
+}
+.countdown-label{
+  font-family:var(--label);
+  font-size:.56rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold-bright);
+  margin-top:6px;
+  display:block;
+  opacity:.85;
+}
+@media(max-width:540px){
+  .countdown-grid{ gap:10px; }
+  .countdown-box{ min-width:70px; padding:12px 8px 10px; }
+  .countdown-num{ font-size:1.9rem; }
+  .countdown-label{ font-size:.5rem; letter-spacing:.16em; }
+}
 
 /* ============================================================
    CELEBRATIONS & EVENTS (PROGRAMME)
@@ -569,13 +647,10 @@ body.site-ready #sound-toggle{ opacity:.92; }
   <svg class="corner br" viewBox="0 0 60 60"><path d="M2 40 Q2 2 40 2" fill="none" stroke="#B0813C" stroke-width="1.2"/><path d="M2 26 Q2 2 26 2" fill="none" stroke="#B0813C" stroke-width="1"/><circle cx="2" cy="2" r="2.4" fill="#B0813C"/></svg>
 </div>
 
-<!-- ===================== OPENING VIDEO ===================== -->
+<!-- ===================== OPENING COVER ===================== -->
 <div id="opening">
-  <button class="op-tap" id="op-tap" aria-label="Begin invitation"></button>
-  <video id="op-video" src="assets/opening.mp4" poster="assets/opening-poster.jpg" muted playsinline preload="auto"></video>
-  <div class="veil"></div>
-  <button id="skip-open">Skip ↦</button>
-  <div class="op-hint" id="op-hint">Tap anywhere<span>✦</span></div>
+  <div class="op-bg"></div>
+  <button id="op-enter-btn" aria-label="Open Invitation">Open Invitation ✦</button>
 </div>
 
 <button id="sound-toggle" aria-label="Toggle music" title="Toggle background music">
@@ -639,14 +714,44 @@ body.site-ready #sound-toggle{ opacity:.92; }
   </div>
 </section>
 
-<!-- ===================== DATE ===================== -->
+<!-- ===================== DATE & COUNTDOWN ===================== -->
 <section id="date">
   <div class="wrap" data-reveal="scale">
     <div class="date-num">05</div>
     <div class="date-month">December</div>
     <div class="date-year">2026</div>
     <div class="date-sub">Saturday</div>
-    <div class="date-mal">Vrischikam 19, 1202</div>
+    <!-- <div class="date-mal">Vrischikam 19, 1202</div> -->
+
+    <!-- Countdown Timer -->
+    <div class="countdown-container">
+      <p class="countdown-eyebrow">✦ Counting Down To The Big Day ✦</p>
+      <div class="countdown-grid" id="wedding-countdown">
+        <div class="countdown-box">
+          <span class="countdown-num" id="cd-days">00</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-num" id="cd-hours">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-num" id="cd-minutes">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-num" id="cd-seconds">00</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:38px; position:relative; z-index:2;">
+      <a class="pill-btn on-dark" target="_blank" rel="noopener"
+         href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Sethu%20%26%20Meghana%20%E2%80%94%20Wedding&amp;dates=20261205T100000/20261205T220000&amp;ctz=Asia/Kolkata&amp;details=Join%20us%20to%20celebrate%20the%20wedding%20of%20Sethu%20A.%20N.%20%26%20Meghana%20M.%20M.%0A%0A10%3A00%20AM%20%E2%80%94%20Marriage%20Solemnisation%2C%20Mullassery%20Sub%20Registrar%20Office%0A11%3A00%20AM%20%E2%80%94%20Wedding%20Feast%20(Sadhya)%2C%20Parappur%20Church%20Hall%0A5%3A00%20PM%20%E2%80%94%20Reception%2C%20St.%20Mary%27s%20Church%20Hall%0A%0AWe%20look%20forward%20to%20your%20presence%20and%20blessings.&amp;location=Parappur%20Church%20Hall%2C%20Parappur%2C%20Thrissur%2C%20Kerala">
+        Add to Calendar
+      </a>
+    </div>
   </div>
 </section>
 
@@ -686,7 +791,7 @@ body.site-ready #sound-toggle{ opacity:.92; }
           <span class="event-badge">Traditional Wedding Sadhya</span>
         </div>
         <div style="margin-top:26px;">
-          <a class="pill-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Parappur+Church+Hall+Parappur">Get Directions</a>
+          <a class="pill-btn" target="_blank" rel="noopener" href="https://maps.app.goo.gl/wzeczP22McNAZQF19?g_st=aw">Get Directions</a>
         </div>
       </div>
 
@@ -709,7 +814,7 @@ body.site-ready #sound-toggle{ opacity:.92; }
 </section>
 
 <!-- ===================== GALLERY ===================== -->
-<section id="gallery">
+<!-- <section id="gallery">
   <div class="wrap">
     <div class="head" data-reveal>
       <p class="eyebrow">The Cinematic Album</p>
@@ -718,8 +823,7 @@ body.site-ready #sound-toggle{ opacity:.92; }
     <div class="gal-grid" data-reveal="scale">
       <div class="gal-item gal-1" data-full="assets/couple1.jpeg"><img src="assets/couple1.jpeg" alt="Sethu and Meghana"></div>
       <div class="gal-item gal-2" data-full="assets/couple2.png"><img src="assets/couple2.png" alt="Sethu and Meghana candid"></div>
-      <!-- <div class="gal-item gal-3" data-full="assets/couple3.jpg"><img src="assets/couple3.jpg" alt="Sethu and Meghana celebration"></div> -->
-    </div>
+     </div>
   </div>
 </section>
 
@@ -728,7 +832,7 @@ body.site-ready #sound-toggle{ opacity:.92; }
   <button class="lb-nav lb-prev" id="lb-prev">‹</button>
   <img id="lb-img" src="" alt="">
   <button class="lb-nav lb-next" id="lb-next">›</button>
-</div>
+</div> -->
 
 <!-- ===================== VENUE & MAPS ===================== -->
 <section id="venue">
@@ -739,19 +843,19 @@ body.site-ready #sound-toggle{ opacity:.92; }
     <p class="addr" id="active-venue-addr">Parappur, Thrissur, Kerala — Wedding Feast (Sadhya) · From 11:00 AM</p>
 
     <!-- Venue selection tabs -->
-    <div class="venue-pills">
+    <!-- <div class="venue-pills">
       <button type="button" class="venue-tab active" data-vindex="0">Parappur Church Hall</button>
       <button type="button" class="venue-tab" data-vindex="1">St. Mary's Golden Jubilee Hall</button>
       <button type="button" class="venue-tab" data-vindex="2">Mullassery Sub Registrar Office</button>
-    </div>
+    </div> -->
 
-    <div class="btn-row">
-      <a class="pill-btn" id="venue-maps-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Parappur+Church+Hall+Parappur">View on Google Maps</a>
-      <a class="pill-btn" id="venue-dir-link" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Parappur+Church+Hall+Parappur">Get Directions</a>
-    </div>
+      <!-- <div class="btn-row">
+        <a class="pill-btn" id="venue-maps-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Parappur+Church+Hall+Parappur">View on Google Maps</a>
+        <a class="pill-btn" id="venue-dir-link" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Parappur+Church+Hall+Parappur">Get Directions</a>
+      </div> -->
 
     <div class="map-frame">
-      <iframe id="venue-iframe" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Parappur+Church+Hall+Parappur&output=embed"></iframe>
+      <iframe id="venue-iframe" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=10.5636724,76.1218067&amp;hl=en&amp;z=17&amp;output=embed"></iframe>
     </div>
   </div>
 </section>
@@ -797,7 +901,7 @@ body.site-ready #sound-toggle{ opacity:.92; }
 </section>
 
 <!-- ===================== CLOSING ===================== -->
-<section id="closing">
+<!-- <section id="closing">
   <div class="wrap c-inner">
     <div class="diya"><div class="flame"></div></div>
     <p class="compliments">❖ With Best Compliments ❖</p>
@@ -825,6 +929,20 @@ body.site-ready #sound-toggle{ opacity:.92; }
       Contact: 9562494240
     </p>
   </div>
+</section> -->
+ 
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <p class="eyebrow">The Cinematic Album</p>
+      <h2>A Few Frames of Us</h2>
+    </div>
+    <div class="gal-grid" data-reveal="scale">
+      <div class="gal-item gal-1" data-full="assets/couple1.jpeg"><img src="assets/couple1.jpeg" alt="Sethu and Meghana"></div>
+      <!-- <div class="gal-item gal-2" data-full="assets/couple2.png"><img src="assets/couple2.png" alt="Sethu and Meghana candid"></div> -->
+     </div>
+  </div>
 </section>
 
 <footer class="site-foot">Wedding Invitation · Saturday, December 5, 2026 · Thrissur, Kerala</footer>
@@ -833,47 +951,33 @@ body.site-ready #sound-toggle{ opacity:.92; }
 (function(){
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------------- OPENING VIDEO ---------------- */
+  /* ---------------- OPENING COVER ---------------- */
   var opening = document.getElementById('opening');
-  var video = document.getElementById('op-video');
-  var hint = document.getElementById('op-hint');
+  var openBtn = document.getElementById('op-enter-btn');
   var body = document.body;
-  var started = false;
   var bgm = document.getElementById('bgm');
   var soundBtn = document.getElementById('sound-toggle');
   var musicPlaying = false;
 
   function finishOpening(){
-    if(opening.classList.contains('hide')) return;
+    if(!opening || opening.classList.contains('hide')) return;
     opening.classList.add('hide');
     body.classList.remove('opening');
     body.classList.remove('lock');
     body.classList.add('site-ready');
-    setTimeout(function(){ opening.style.display='none'; }, 1500);
-  }
-
-  function startVideo(){
-    if(started) return;
-    started = true;
-    hint.style.display='none';
-    video.play().catch(function(){ finishOpening(); });
-    if(bgm.src){
+    // Start background music seamlessly on user click
+    if(bgm && bgm.src){
       bgm.play().then(function(){ musicPlaying = true; }).catch(function(){ musicPlaying = false; });
     }
+    setTimeout(function(){ opening.style.display='none'; }, 1300);
   }
 
   body.classList.add('lock');
 
-  video.addEventListener('loadeddata', function(){
-    if(!started){ video.currentTime = 0; }
-  });
-
   if(reduceMotion){
     finishOpening();
-  } else {
-    video.addEventListener('ended', finishOpening);
-    document.getElementById('op-tap').addEventListener('click', startVideo);
-    document.getElementById('skip-open').addEventListener('click', function(e){ e.stopPropagation(); finishOpening(); });
+  } else if(openBtn) {
+    openBtn.addEventListener('click', finishOpening);
   }
 
   /* ---------------- REVEAL ON SCROLL ---------------- */
@@ -896,6 +1000,43 @@ body.site-ready #sound-toggle{ opacity:.92; }
     }, {passive:true});
   }
 
+  /* ---------------- COUNTDOWN TIMER ---------------- */
+  // Target: Saturday, December 5, 2026, 10:00 AM IST (UTC+5:30)
+  var weddingDate = new Date('2026-12-05T10:00:00+05:30').getTime();
+  var cdDays = document.getElementById('cd-days');
+  var cdHours = document.getElementById('cd-hours');
+  var cdMinutes = document.getElementById('cd-minutes');
+  var cdSeconds = document.getElementById('cd-seconds');
+
+  function updateCountdown(){
+    if(!cdDays) return;
+    var now = new Date().getTime();
+    var diff = weddingDate - now;
+
+    if(diff <= 0){
+      cdDays.textContent = '00';
+      cdHours.textContent = '00';
+      cdMinutes.textContent = '00';
+      cdSeconds.textContent = '00';
+      var eyebrow = document.querySelector('.countdown-eyebrow');
+      if(eyebrow) eyebrow.textContent = '✦ Today Is The Wedding Day! ✦';
+      return;
+    }
+
+    var d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    var s = Math.floor((diff % (1000 * 60)) / 1000);
+
+    cdDays.textContent = d < 10 ? '0' + d : d;
+    cdHours.textContent = h < 10 ? '0' + h : h;
+    cdMinutes.textContent = m < 10 ? '0' + m : m;
+    cdSeconds.textContent = s < 10 ? '0' + s : s;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+u
   /* ---------------- GALLERY LIGHTBOX ---------------- */
   var galItems = document.querySelectorAll('.gal-item');
   var lb = document.getElementById('lightbox');
